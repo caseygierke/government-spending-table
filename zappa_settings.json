@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "app_function": "tableApp.app",
+        "profile_name": "default",
+        "project_name": "government-spending-table",
+        "runtime": "python3.7",
+        "s3_bucket": "zappa-jeeod8aiq",
+        "aws_region": "us-west-2"
+    }
+}
