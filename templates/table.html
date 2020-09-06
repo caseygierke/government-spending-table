@@ -11,43 +11,24 @@
 
 	<p>This table shows the budget of the government agencies indexed by USASpending.gov</p>
 
-	<table class="w3-table-all w3-margin-top" id="myTable">
-	  <tr>
-	    <th onclick="sortTable(0)">Name</th>
-	    <th onclick="sortTable(0)">Country</th>
-	  </tr>
-	  <tr>
-	    <td>Berglunds snabbkop</td>
-	    <td>Sweden</td>
-	  </tr>
-	  <tr>
-	    <td>North/South</td>
-	    <td>UK</td>
-	  </tr>
-	  <tr>
-	    <td>Alfreds Futterkiste</td>
-	    <td>Germany</td>
-	  </tr>
-	  <tr>
-	    <td>Koniglich Essen</td>
-	    <td>Germany</td>
-	  </tr>
-	  <tr>
-	    <td>Magazzini Alimentari Riuniti</td>
-	    <td>Italy</td>
-	  </tr>
-	  <tr>
-	    <td>Paris specialites</td>
-	    <td>France</td>
-	  </tr>
-	  <tr>
-	    <td>Island Trading</td>
-	    <td>UK</td>
-	  </tr>
-	  <tr>
-	    <td>Laughing Bacchus Winecellars</td>
-	    <td>Canada</td>
-	  </tr>
+	<table id="myTable">
+	    <thead>
+			<tr style="background-color: #ebebeb;">
+		        {% for key in data[0].keys() %}
+					<th onclick="sortTable({{ loop.index -1 }})">{{ key }}</th>
+			    {% endfor %}
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for record in data %}
+				<tr>
+					{% for key in record.keys() %}
+						<td>{{ record[key] }}</td>
+				    {% endfor %}
+			    </tr>
+			{% endfor %}
+		</tbody>
 	</table>
 
 	<script>
