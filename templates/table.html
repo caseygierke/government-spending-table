@@ -11,25 +11,27 @@
 
 	<p>This table shows the budget of the government agencies indexed by USASpending.gov</p>
 
-	<table id="myTable">
-	    <thead>
-			<tr style="background-color: #ebebeb;">
-		        {% for key in data[0].keys() %}
-					<th onclick="sortTable({{ loop.index -1 }})">{{ key }}</th>
-			    {% endfor %}
-			</tr>
-		</thead>
-
-		<tbody>
-			{% for record in data %}
-				<tr>
-					{% for key in record.keys() %}
-						<td>{{ record[key] }}</td>
+	{% if data is defined %}
+		<table id="myTable">
+		    <thead>
+				<tr style="background-color: #ebebeb;">
+			        {% for key in data[0].keys() %}
+						<th onclick="sortTable({{ loop.index -1 }})">{{ key }}</th>
 				    {% endfor %}
-			    </tr>
-			{% endfor %}
-		</tbody>
-	</table>
+				</tr>
+			</thead>
+
+			<tbody>
+				{% for record in data %}
+					<tr>
+						{% for key in record.keys() %}
+							<td>{{ record[key] }}</td>
+					    {% endfor %}
+				    </tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
 
 	<script>
 	function sortTable(n) {
