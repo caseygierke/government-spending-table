@@ -11,6 +11,10 @@
 
 	<p>This table shows the budget of the government agencies indexed by USASpending.gov</p>
 
+	<form method="post" action="/">
+        <button type="submit" value="Get Data" name="API Call"  class="btn btn-primary"/>Get Data</button>
+	</form>
+
 	{% if data is defined %}
 		<table id="myTable">
 		    <thead>
